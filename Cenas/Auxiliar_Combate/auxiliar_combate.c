@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
-#include "../Draw/draw.h"
-#include "../../Clear_Screen/clear.h" 
+#include "../Desenho/desenho.h"
+#include "../../Limpar_tela/limpar.h" 
 
 int aux_damage(){
-    int dano = (rand() % 21) + 10;
+    int dano = (rand() % 31) + 10; //-> 10 até 30
     return dano;
 }
 

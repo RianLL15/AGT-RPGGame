@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-void clear_screen() {
+void limpar_tela() {
     #ifdef _WIN32
         system("cls");
     #else

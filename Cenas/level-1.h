@@ -1,5 +1,5 @@
 #ifndef scenes1_H
 #define scenes1_H
 
-void combat_scenes();
+void cena_de_combate();
 #endif

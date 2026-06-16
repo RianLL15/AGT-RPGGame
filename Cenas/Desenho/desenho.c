@@ -2,7 +2,7 @@
 #include <string.h>
 
 void bar_life(int tamanhoA, int Hp){
-    int barra = (Hp * tamanhoA)/ 100;
+    int barra = (Hp * tamanhoA)/ 100; 
     int vazia = tamanhoA - barra;
     
     for(int i = 0; i < barra; i++){
@@ -16,12 +16,16 @@ void bar_life(int tamanhoA, int Hp){
 }
 
 void draw_HpB(int HpP, int HpI) {
-    const int tamanho = 15;
+    int tamanho = 15;
 
     printf("╭─────────────────────────────────────────────────────────────────────────────────╮\n");
-    printf("  Player  {-"); bar_life(tamanho, HpP); printf("-} %3d%%", HpP);
+    printf("  Player  {-"); 
+    bar_life(tamanho, HpP); 
+    printf("-} %3d%%", HpP);
     printf("   VS.   ");
-    printf("Opponent  {-"); bar_life(tamanho, HpI); printf("-} %3d%%", HpI);
+    printf("Opponent  {-"); 
+    bar_life(tamanho, HpI); 
+    printf("-} %3d%%", HpI);
     printf("\n╰─────────────────────────────────────────────────────────────────────────────────╯\n\n");
 
 }
@@ -39,18 +43,22 @@ void draw_menu_op(int botao_pressionado) {
 
     printf("\n Escolha sua ação: \n");
 
+    //Linha 1
     if(botao_pressionado == 1) printf("             "); else printf(" ____________");
     if(botao_pressionado == 2) printf("                 "); else printf("     ____________");
     if(botao_pressionado == 3) printf("                 \n"); else printf("     ____________\n");
 
+    //Linha 2
     if(botao_pressionado == 1) printf(" ____________    "); else printf("||1  Block  ||   ");
     if(botao_pressionado == 2) printf(" ____________    "); else printf("||2  Attack ||   ");
     if(botao_pressionado == 3) printf(" ____________\n"); else printf("||3  Items  ||   \n");
 
+    //Linha 3
     if(botao_pressionado == 1) printf("||1  Block  ||   "); else printf("||__________||   ");
     if(botao_pressionado == 2) printf("||2  Attack ||   "); else printf("||__________||   ");
     if(botao_pressionado == 3) printf("||3  Items  ||   \n"); else printf("||__________||   \n");
 
+    //Linha 4
     printf("|/__________\\|   |/__________\\|   |/__________\\|        \n");
     
 }
