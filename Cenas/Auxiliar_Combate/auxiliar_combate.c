@@ -6,61 +6,51 @@
 #include "../Desenho/desenho.h"
 #include "../../Limpar_tela/limpar.h" 
 
-int aux_damage(){
+int auxiliar_dano(){
     int dano = (rand() % 31) + 10; //-> 10 até 30
     return dano;
 }
 
-void aux_parry(){
-
-}
-
-int aux_backpack(){
-
-}
-
-void aux_combat(int p_op, int c_op, int *HpP, int *HpI, int Tp, int Ti) {
+void auxiliar_combate(int opcao_jogador, int opcao_computador, int *vidaJogador, int *vidaComputador, int taxaJogador, int taxaComputador) {
     int dano_critico, dano_reduzido, revide; 
     
-    int dano_P = aux_damage(); //Randomiza o dano que o Player vai causar
-    int dano_I = aux_damage(); //Randomia o dano que o Inimigo vai causar
+    int dano_jogador = auxiliar_dano(); //Randomiza o dano que o Player vai causar
+    int dano_computador = auxiliar_dano(); //Randomia o dano que o Inimigo vai causar
 
     //Caso ambos escolherem a opção 2 terá um contra-ataque
-    if (p_op == 2 && c_op == 2) {
-        aux_parry();
+    if (opcao_jogador == 2 && opcao_computador == 2) {
     }
 
     // Lógica quando o Player ataca (opção 2) e o Inimigo tenta defender (opção 1)
-    else if (p_op == 2) {
-        if (c_op == 1) {
-            if ((rand() % 100) < Ti) { // Sucesso da defesa
-                revide = dano_I / 2;
+    else if (opcao_jogador == 2) {
+        if (opcao_computador == 1) {
+            if ((rand() % 100) < taxaComputador) { // Sucesso da defesa
+                revide = dano_computador / 2;
                 printf("Inimigo bloqueou e revidou! -%d HP para voce.\n", revide);
-                *HpP -= revide;
+                *vidaJogador -= revide;
             } else {
-                printf("Ataque limpo! Voce causou %d de dano.\n", dano_P);
-                *HpI -= dano_P;
+                printf("Ataque limpo! Voce causou %d de dano.\n", dano_jogador);
+                *vidaComputador -= dano_jogador;
             }
         }
     }
 
     // Lógica quando o Inimigo ataca(opção 2) e o Player tenta defender (opção 1)
-    else if (c_op == 2) {
-        if (p_op == 1) { 
-            if ((rand() % 100) < Tp) { // Chance de sucesso
-                revide = dano_P / 2;
+    else if (opcao_computador == 2) {
+        if (opcao_jogador == 1) { 
+            if ((rand() % 100) < taxaJogador) { // Chance de sucesso
+                revide = dano_jogador / 2;
                 printf("DEFESA PERFEITA! Voce revidou -%d HP no inimigo.\n", revide);
-                *HpI -= revide;
+                *vidaComputador -= revide;
             } else {
-                printf("O inimigo te acertou em cheio! -%d HP.\n", dano_I);
-                *HpP -= dano_I;
+                printf("O inimigo te acertou em cheio! -%d HP.\n", dano_computador);
+                *vidaJogador -= dano_computador;
             }
         }
     }
 
     // Caso algum dos lutadores escolha acessar a mochila/itens (opção 3)
-    else if(p_op == 3 || c_op == 3){
-        aux_backpack();
+    else if(opcao_jogador == 3 || opcao_computador == 3){
     }
 
     // Caso ocorra uma combinação de ações que não resulte em dano direto
@@ -69,8 +59,8 @@ void aux_combat(int p_op, int c_op, int *HpP, int *HpI, int Tp, int Ti) {
     }
 }
 
-int aux_validate_input(int opV,int p_op) {
-    if (opV != 1 || p_op < 1 || p_op > 3) {
+int auxiliar_validar_opcao(int opcao_validacao_entrada,int opcao_jogador) {
+    if (opcao_validacao_entrada != 1 || opcao_jogador < 1 || opcao_jogador > 3) {
         printf("\n[!] Entrada invalida! [!]\n");
         sleep(1);
         return 0; 
@@ -78,63 +68,64 @@ int aux_validate_input(int opV,int p_op) {
     return 1;
 }
 
-void aux_spamm(int p_op, int *c_op, int *Ti) {
-    static int ultima_op = 0; 
-    static int spam_count = 0;
+void auxiliar_repeticao_tecla(int opcao_jogador, int *opcao_computador, int *taxaComputador) {
+    static int ultima_opcao = 0; 
+    static int contador_reticao = 0;
 
-    if (p_op == ultima_op) {
-        spam_count++;
+    if (opcao_jogador == ultima_opcao) {
+        contador_reticao++;
     } else {
-        spam_count = 1;
-        *Ti = 70;
+        contador_reticao = 1;
+        *taxaComputador = 50;
     }
 
-    ultima_op = p_op;
+    ultima_opcao = opcao_jogador;
 
-    if (spam_count >= 4) {
-        if (p_op == 2) { 
+    if (contador_reticao >= 4) {
+        if (opcao_jogador == 2) { 
             printf("\n[!] O inimigo previu seu padrão de ATAQUE! [!]\n");
-            *Ti = 100;   
-            *c_op = 1;  
+            *taxaComputador = 100;   
+            *opcao_computador = 1;  
         } 
-        else if (p_op == 1) { 
+        else if (opcao_jogador  == 1) { 
             printf("\n[!] O inimigo percebeu sua covardia e vai QUEBRAR sua guarda! [!]\n");
-            *Ti = 100;
-            *c_op = 2;   
+            *taxaComputador = 100;
+            *opcao_computador = 2;   
             
         }
     }
 }
 
-void aux_compt_op(int *c_op){
+void auxiliar_opcao_computador(int *opcao_computador){
     int chance = rand() % 101;
 
     if(chance < 55){
-        *c_op = 2;
+        *opcao_computador = 2;
     } else if(chance < 90){
-        *c_op = 1;
+        *opcao_computador = 1;
     } else{
-       *c_op = 3;
+       *opcao_computador = 3;
     }
 }
 
-int aux_kill(int HpP, int HpI){
-    if(HpP <= 0){
+int auxiliar_tela_final(int vidaJogador, int vidaComputador){
+    if(vidaJogador <= 0){
         // --- Renderização da Interface para a Derrota---
-        clear_screen();
-        draw_HpB(0,HpI);
-        draw_combate();
-        draw_menu_op();
+        limpar_tela();
+        desenho_barra_vida(0,vidaComputador);
+        desenho_combate();
+        desenha_menu_opcao();
 
         printf("\n--- VOCE MORREU ---\n");
 
     } else {
         // --- Renderização da Interface para a Vitoria---
-        clear_screen();
-        draw_HpB(HpP,0);
-        draw_combate();
-        draw_menu_op();
+        limpar_tela();
+        desenho_barra_vida(vidaJogador,0);
+        desenho_combate();
+        desenha_menu_opcao();
         printf("\n--- VITORIA! ---\n");
     }
+
     return 0;
 }

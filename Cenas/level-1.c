@@ -13,14 +13,14 @@ void cena_de_combate() {
 
     char opcao_validacao_digitada[20]; 
     int opcao_validacao_entrada, opcao_jogador, opcao_computador;               // Opções do (Player/Inimigo)
-    int VidaJogador = 100, VidaComputador = 100;                           // Vida inicial (Player/Inimigo)
-    int TaxaJogador = 50, TaxaComputador = 50;                               // Taxas de sucesso (Player/Inimigo)
+    int vidaJogador = 100, vidaComputador = 100;                           // Vida inicial (Player/Inimigo)
+    int taxaJogador = 50, taxaComputador = 50;                               // Taxas de sucesso (Player/Inimigo)
 
-    while (VidaJogador > 0 && VidaComputador > 0) {
+    while (vidaJogador > 0 && vidaComputador > 0) {
 
         // --- Renderização da Interface ---
         limpar_tela();
-        desenho_barra_vida(VidaJogador, VidaComputador);
+        desenho_barra_vida(vidaJogador, vidaComputador);
         desenho_combate();
         desenho_menu_opcao();
 
@@ -37,7 +37,7 @@ void cena_de_combate() {
         auxiliar_opcao_computador(&opcao_computador);
 
         limpar_tela();
-        desenho_barra_vida(VidaJogador, VidaComputador);
+        desenho_barra_vida(vidaJogador, vidaComputador);
         desenho_combate();
         desenho_menu_opcao();
 
@@ -47,19 +47,20 @@ void cena_de_combate() {
         }
 
         limpar_tela();
-        desenho_barra_vida(VidaJogador, VidaComputador);
+        desenho_barra_vida(vidaJogador, vidaComputador);
         desenho_combate();
         desenho_menu_opcao(opcao_jogador);
 
-        auxiliar_repeticao_tecla(opcao_jogador, &opcao_computador, &TaxaComputador);
+        auxiliar_repeticao_tecla(opcao_jogador, &opcao_computador, &taxaComputador);
 
         desenho_opcao_escolida(opcao_jogador, opcao_computador);
-        auxiliar_combate(opcao_jogador, opcao_computador, &VidaJogador, &VidaComputador, TaxaJogador, TaxaComputador);
+        auxiliar_combate(opcao_jogador, opcao_computador, &vidaJogador, &vidaComputador, 
+                        taxaJogador, taxaComputador);
         
         // Intervalo entre turnos
         printf("\nProximo turno em 2 segundos...\n");
         sleep(60);
     }
 
-    auxiliar_tela_final(VidaJogador, VidaComputador);
+    auxiliar_tela_final(vidaJogador, vidaComputador);
 }

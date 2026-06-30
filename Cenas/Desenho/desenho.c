@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
-void bar_life(int tamanhoA, int Hp){
-    int barra = (Hp * tamanhoA)/ 100; 
-    int vazia = tamanhoA - barra;
+void barra_de_vida(int tamanhoAtual, int vida){
+    int barra = (vida * tamanhoAtual)/ 100; 
+    int vazia = tamanhoAtual - barra;
     
     for(int i = 0; i < barra; i++){
         printf("|"); 
@@ -15,22 +15,22 @@ void bar_life(int tamanhoA, int Hp){
     
 }
 
-void draw_HpB(int HpP, int HpI) {
+void desenho_barra_vida(int vidaJogador, int vidaComputador) {
     int tamanho = 15;
 
     printf("╭─────────────────────────────────────────────────────────────────────────────────╮\n");
     printf("  Player  {-"); 
-    bar_life(tamanho, HpP); 
-    printf("-} %3d%%", HpP);
+    barra_de_vida(tamanho, vidaJogador); 
+    printf("-} %3d%%", vidaJogador);
     printf("   VS.   ");
     printf("Opponent  {-"); 
-    bar_life(tamanho, HpI); 
-    printf("-} %3d%%", HpI);
+    barra_de_vida(tamanho, vidaComputador); 
+    printf("-} %3d%%", vidaComputador);
     printf("\n╰─────────────────────────────────────────────────────────────────────────────────╯\n\n");
 
 }
 
-void draw_combate() {
+void desenho_combate() {
     printf("                    O                                       [O]         \n");
     printf("                    |                                        |          \n");
     printf("                   /|\\                                      /|\\       \n");
@@ -39,7 +39,7 @@ void draw_combate() {
     printf("                  /   \\                                    /   \\      \n\n");
 }
 
-void draw_menu_op(int botao_pressionado) {
+void desenha_menu_opcao(int botao_pressionado) {
 
     printf("\n Escolha sua ação: \n");
 
@@ -63,24 +63,6 @@ void draw_menu_op(int botao_pressionado) {
     
 }
 
-void draw_option_select(int p_op, int c_op){
-    printf("\nVoce: %d | Inimigo: %d\n", p_op, c_op);
-}
-
-int draw_backpack(){
-
-}
-
-void draw_menu_game() {
-    printf("                   __  __                                           \n");
-    printf(" /'\\_/`\\          /\\ \\/\\ \\                                    \n");
-    printf("/\\      \\         \\ \\  `\\ \\                                   \n");
-    printf("\\ \\ \\__\\ \\         \\ \\ , ` \\                                \n");
-    printf(" \\ \\ \\_/\\ \\   ____  \\ \\ \\`\\ \\   __  __                    \n");
-    printf("  \\ \\_\\\\ \\_\\ /\\  _   \\ \\_\\ \\_\\ /\\ \\/\\ \\             \n");
-    printf("   \\/_/ \\/_/ \\ \\ \\L\\_ \\/_/\\/_/ \\ \\ \\ \\ \\               \n");
-    printf("              \\ \\  _\\L          \\ \\ \\ \\ \\                   \n");
-    printf("               \\ \\ \\L\\           \\ \\ \\_\\ \\                 \n");
-    printf("                \\ \\____/          \\ \\_____\\                    \n");
-    printf("                 \\/___/            \\/_____/                       \n");
+void desenho_opcao_escolida(int vidaJogador, int vidaComputador){
+    printf("\nVoce: %d | Inimigo: %d\n", vidaJogador, vidaComputador);
 }

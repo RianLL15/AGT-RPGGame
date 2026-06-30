@@ -1,10 +1,9 @@
 #ifndef UI_H
 #define UI_H
 
-void draw_combate();
-void draw_menu_op();
-void menu_game();
-void draw_HpB();
-void draw_nameB();
-void draw_option_name();
+void desenho_barra_vida();
+void desenho_combate();
+void desenha_menu_opcao();
+void desenho_opcao_escolida();
+
 #endif
