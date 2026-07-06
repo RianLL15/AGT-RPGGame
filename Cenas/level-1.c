@@ -3,12 +3,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
-#include "Cenas/Auxiliar_Combate/auxiliar_combate.h"
-#include "Limpar_tela/limpar.h"
-#include "Cenas/Desenho/desenho.h" 
+#include "Auxiliar_Combate/auxiliar_combate.h"
+#include "../Limpar_tela/limpar.h"
+#include "Desenho/desenho.h"
 
-
-void cena_de_combate(void) {
+void cena_de_combate() {
     srand(time(NULL)); 
 
     char opcao_validacao_digitada[20]; 
