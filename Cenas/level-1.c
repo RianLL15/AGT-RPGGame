@@ -8,7 +8,7 @@
 #include "Cenas/Desenho/desenho.h" 
 
 
-void cena_de_combate() {
+void cena_de_combate(void) {
     srand(time(NULL)); 
 
     char opcao_validacao_digitada[20]; 
@@ -54,12 +54,11 @@ void cena_de_combate() {
         auxiliar_repeticao_tecla(opcao_jogador, &opcao_computador, &taxaComputador);
 
         desenho_opcao_escolida(opcao_jogador, opcao_computador);
-        auxiliar_combate(opcao_jogador, opcao_computador, &vidaJogador, &vidaComputador, 
-                        taxaJogador, taxaComputador);
+        auxiliar_combate(opcao_jogador, opcao_computador, &vidaJogador, &vidaComputador,taxaJogador, taxaComputador);
         
         // Intervalo entre turnos
         printf("\nProximo turno em 2 segundos...\n");
-        sleep(60);
+        sleep(20);
     }
 
     auxiliar_tela_final(vidaJogador, vidaComputador);

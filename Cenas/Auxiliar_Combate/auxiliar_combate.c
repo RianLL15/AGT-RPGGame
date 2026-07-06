@@ -6,7 +6,7 @@
 #include "Cenas/Desenho/desenho.h"
 #include "Limpar_tela/limpar.h"
 
-int auxiliar_dano(){
+int auxiliar_dano(void){
     int dano = (rand() % 31) + 10; //-> 10 até 30
     return dano;
 }

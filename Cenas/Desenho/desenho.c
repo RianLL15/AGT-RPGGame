@@ -30,7 +30,7 @@ void desenho_barra_vida(int vidaJogador, int vidaComputador) {
 
 }
 
-void desenho_combate() {
+void desenho_combate(void) {
     printf("                    O                                       [O]         \n");
     printf("                    |                                        |          \n");
     printf("                   /|\\                                      /|\\       \n");

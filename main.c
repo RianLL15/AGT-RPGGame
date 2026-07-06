@@ -9,4 +9,4 @@ int main(){
     cena_de_combate();
 }
 
-// rm jogo; gcc main.c Cenas/level-1.c Limpar_tela/limpar.c Cenas/Desenho/desenho.c Cenas/Auxixiliar_combate/auxiliar_combate.c -I . -o jogo && ./jogo
+// gcc main.c Cenas/level-1.c Limpar_tela/limpar.c Cenas/Desenho/desenho.c Cenas/Auxiliar_Combate/auxiliar_combate.c -I . -o jogo && ./jogo
