@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
-#include "Auxiliar_Combate/auxiliar_combate.h"      
-#include "../Limpar_tela/limpar.h" 
-#include "Desenho/desenho.h"   
+#include "Cenas/Auxiliar_Combate/auxiliar_combate.h"
+#include "Limpar_tela/limpar.h"
+#include "Cenas/Desenho/desenho.h" 
 
 
 void cena_de_combate() {

@@ -1,11 +1,10 @@
 #ifndef AUX_H
 #define AUX_H
 
-int auxiliar_dano();
-void auxiliar_opcao_computador(int *c_op);
-int auxiliar_validar_opcao(int opV,int p_op);
-void auxiliar_repeticao_tecla(int p_op, int *c_op, int *Ti);
-void auxiliar_combate(int p_op, int c_op, int *HpP, int *HpI, int Tp, int Ti);
-int auxiliar_tela_final(int HpP, int HpI);
+void auxiliar_opcao_computador(int *opcao_computador);
+int auxiliar_validar_opcao(int opcao_validacao_entrada,int opcao_jogador);
+void auxiliar_repeticao_tecla(int opcao_jogador, int *opcao_computador, int *taxaComputador);
+void auxiliar_combate(int opcao_jogador, int opcao_computador, int *vidaJogador, int *vidaComputador, int taxaJogador, int taxaComputador);
+int auxiliar_tela_final(int vidaJogador, int vidaComputador);
 
 #endif

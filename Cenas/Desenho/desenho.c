@@ -63,6 +63,6 @@ void desenha_menu_opcao(int botao_pressionado) {
     
 }
 
-void desenho_opcao_escolida(int vidaJogador, int vidaComputador){
-    printf("\nVoce: %d | Inimigo: %d\n", vidaJogador, vidaComputador);
+void desenho_opcao_escolida(int opcao_jogador, int opcao_computador){
+    printf("\nVoce: %d | Inimigo: %d\n", opcao_jogador, opcao_computador);
 }

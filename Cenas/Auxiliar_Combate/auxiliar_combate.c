@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
-#include "../Desenho/desenho.h"
-#include "../../Limpar_tela/limpar.h" 
+#include "Cenas/Desenho/desenho.h"
+#include "Limpar_tela/limpar.h"
 
 int auxiliar_dano(){
     int dano = (rand() % 31) + 10; //-> 10 até 30
