@@ -1,5 +1,5 @@
-#ifndef UI_H
-#define UI_H
+#ifndef DESENHO_H
+#define DESENHO_H
 
 void desenho_barra_vida(int vidaJogador, int vidaComputador);
 void desenho_combate(void);

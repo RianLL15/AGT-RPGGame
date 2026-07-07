@@ -1,5 +1,5 @@
-#ifndef UI_H
-#define UI_H
+#ifndef LIMPAR_H
+#define LIMPAR_H
 
 void limpar_tela(void);
 #endif

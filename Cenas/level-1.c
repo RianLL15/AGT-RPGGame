@@ -21,7 +21,7 @@ void cena_de_combate() {
         limpar_tela();
         desenho_barra_vida(vidaJogador, vidaComputador);
         desenho_combate();
-        desenho_menu_opcao();
+        desenho_menu_opcao(0);
 
 
         // --- Entrada de Dados ---
@@ -38,7 +38,7 @@ void cena_de_combate() {
         limpar_tela();
         desenho_barra_vida(vidaJogador, vidaComputador);
         desenho_combate();
-        desenho_menu_opcao();
+        desenho_menu_opcao(0);
 
         // --- Lógica de Combate e Atualização ---
         if(auxiliar_validar_opcao(opcao_validacao_entrada, opcao_jogador) == 0){
@@ -57,7 +57,7 @@ void cena_de_combate() {
         
         // Intervalo entre turnos
         printf("\nProximo turno em 2 segundos...\n");
-        sleep(20);
+        sleep(2);
     }
 
     auxiliar_tela_final(vidaJogador, vidaComputador);

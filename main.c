@@ -7,6 +7,8 @@
 int main(){
     // desenhar_menu_game();
     cena_de_combate();
+
+    return 0;
 }
 
 // gcc main.c Cenas/level-1.c Limpar_tela/limpar.c Cenas/Desenho/desenho.c Cenas/Auxiliar_Combate/auxiliar_combate.c -I . -o jogo && ./jogo

@@ -114,7 +114,7 @@ int auxiliar_tela_final(int vidaJogador, int vidaComputador){
         limpar_tela();
         desenho_barra_vida(0,vidaComputador);
         desenho_combate();
-        desenha_menu_opcao();
+        desenho_menu_opcao(0);
 
         printf("\n--- VOCE MORREU ---\n");
 
@@ -123,7 +123,7 @@ int auxiliar_tela_final(int vidaJogador, int vidaComputador){
         limpar_tela();
         desenho_barra_vida(vidaJogador,0);
         desenho_combate();
-        desenha_menu_opcao();
+        desenho_menu_opcao(0);
         printf("\n--- VITORIA! ---\n");
     }
 

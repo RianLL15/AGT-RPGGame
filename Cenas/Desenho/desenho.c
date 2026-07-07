@@ -39,7 +39,7 @@ void desenho_combate(void) {
     printf("                  /   \\                                    /   \\      \n\n");
 }
 
-void desenha_menu_opcao(int botao_pressionado) {
+void desenho_menu_opcao(int botao_pressionado) {
 
     printf("\n Escolha sua ação: \n");
 
