@@ -19,6 +19,7 @@ void auxiliar_combate(int opcao_jogador, int opcao_computador, int *vidaJogador,
 
     //Caso ambos escolherem a opção 2 terá um contra-ataque
     if (opcao_jogador == 2 && opcao_computador == 2) {
+        printf("TIN!! Ambos atacaram e nada aconteceu\n");
     }
 
     // Lógica quando o Player ataca (opção 2) e o Inimigo tenta defender (opção 1)
@@ -26,7 +27,7 @@ void auxiliar_combate(int opcao_jogador, int opcao_computador, int *vidaJogador,
         if (opcao_computador == 1) {
             if ((rand() % 100) < taxaComputador) { // Sucesso da defesa
                 revide = dano_computador / 2;
-                printf("Inimigo bloqueou e revidou! -%d HP para voce.\n", revide);
+                printf("Inimigo deu parry! -%d HP para voce.\n", revide);
                 *vidaJogador -= revide;
             } else {
                 printf("Ataque limpo! Voce causou %d de dano.\n", dano_jogador);
@@ -40,17 +41,13 @@ void auxiliar_combate(int opcao_jogador, int opcao_computador, int *vidaJogador,
         if (opcao_jogador == 1) { 
             if ((rand() % 100) < taxaJogador) { // Chance de sucesso
                 revide = dano_jogador / 2;
-                printf("DEFESA PERFEITA! Voce revidou -%d HP no inimigo.\n", revide);
+                printf("PARRY! Voce revidou -%d HP no inimigo.\n", revide);
                 *vidaComputador -= revide;
             } else {
                 printf("O inimigo te acertou em cheio! -%d HP.\n", dano_computador);
                 *vidaJogador -= dano_computador;
             }
         }
-    }
-
-    // Caso algum dos lutadores escolha acessar a mochila/itens (opção 3)
-    else if(opcao_jogador == 3 || opcao_computador == 3){
     }
 
     // Caso ocorra uma combinação de ações que não resulte em dano direto
