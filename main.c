@@ -11,4 +11,6 @@ int main(){
     return 0;
 }
 
+// Código a abaixo é para rodar o código no terminal
+
 // gcc main.c Cenas/level-1.c Limpar_tela/limpar.c Cenas/Desenho/desenho.c Cenas/Auxiliar_Combate/auxiliar_combate.c -I . -o jogo && ./jogo

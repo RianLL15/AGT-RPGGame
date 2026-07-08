@@ -50,6 +50,10 @@ void auxiliar_combate(int opcao_jogador, int opcao_computador, int *vidaJogador,
         }
     }
 
+    if(opcao_jogador == 3 || opcao_computador == 3){
+        printf("Foi usado uma poção de defesa");
+    }
+
     // Caso ocorra uma combinação de ações que não resulte em dano direto
     else {
         printf("Turno de estudo. Ninguem se moveu para atacar.\n");

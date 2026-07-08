@@ -57,7 +57,7 @@ void cena_de_combate() {
         
         // Intervalo entre turnos
         printf("\nProximo turno em 2 segundos...\n");
-        sleep(2);
+        sleep(6);
     }
 
     auxiliar_tela_final(vidaJogador, vidaComputador);
